@@ -1,0 +1,17 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded"
+      xmlns:X="nativescript-statusbar"> 
+  <Page.actionBar>
+    <ActionBar class="action-bar-calm" title="Status Bar Test" />
+  </Page.actionBar>
+  <StackLayout>
+    <SegmentedBar>
+        <SegmentedBar.items>
+            <SegmentedBarItem title="Default" />
+            <SegmentedBarItem title="Light" />
+            <SegmentedBarItem title="Dark" />
+            <SegmentedBarItem title="Opaque" />
+        </SegmentedBar.items>
+    </SegmentedBar>
+    <X:StatusBar barStyle="light" />
+  </StackLayout>
+</Page>f
