@@ -21,7 +21,7 @@ Then in your NativeScript project .xml file, add the namespace for the plugin. I
            dark
            opaque
       -->
-      <x.StatusBar barStyle="light" />
+      <x:StatusBar barStyle="light" />
       
 </Page>
 ````
