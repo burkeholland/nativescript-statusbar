@@ -26,7 +26,9 @@ Then in your NativeScript project .xml file, add the namespace for the plugin. I
 </Page>
 ````
 
-![status-bar-light](https://cdn.rawgit.com/burkeholland/nativescript-statusbar/master/images/status-bar.png)
+This changes the text of the iOS status bar from dark to light...
+
+![status-bar-light](![status-bar-light](https://cdn.rawgit.com/burkeholland/nativescript-statusbar/master/images/status-bar.png))
 
 And that's all! Enjoy your nice styled StatusBar. 
 
