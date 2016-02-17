@@ -1,6 +1,6 @@
 # A NativeScript plugin to change the style of the status bar.
 
-<strong>Currently iOS Only</strong>
+**Currently iOS Only**
 
 ### Usage
 
