@@ -4,6 +4,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var common = require("./statusbar-common");
+var platform = require("platform");
 var app = require("application");
 var color = require("color");
 var StatusBar = (function (_super) {
@@ -13,7 +14,7 @@ var StatusBar = (function (_super) {
     }
     StatusBar.prototype.update = function (value) {
         try {
-            if (value) {
+            if (value && platform.device.sdkVersion >= "21") {
                 var nativeColor = new color.Color(value).android;
                 var window = app.android.startActivity.getWindow();
                 window.setStatusBarColor(nativeColor);
