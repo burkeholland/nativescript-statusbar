@@ -1,4 +1,34 @@
 {
+<<<<<<< HEAD
+=======
+    "name": "nativescript-statusbar",
+    "version": "0.0.3",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/burkeholland/nativescript-statusbar.git"
+    },
+    "keywords": [
+        "nativescript",
+        "native",
+        "typescript",
+        "ios",
+        "statusbar",
+        "status bar"
+    ],
+    "contributors": [
+        {
+            "name": "Burke Holland",
+            "email": "burkeholland@gmail.com",
+            "url": "https://github.com/burkeholland"
+        },
+        {
+            "name": "Brad Martin",
+            "email": "bradwaynemartin@gmail.com",
+            "url": "https://github.com/bradmartin"
+        }
+    ],
+    "license": "MIT",
+>>>>>>> 62921aeafc1d602b5201d4fc593bde228895ddf3
     "devDependencies": {
         "grunt": "~0.4.5",
         "grunt-contrib-clean": "^0.6.0",
