@@ -2,6 +2,7 @@ import definition = require("statusbar");
 import { View } from "ui/core/view";
 import * as dependencyObservable from "ui/core/dependency-observable";
 import * as proxy from "ui/core/proxy";
+import app = require("application");
 
 let BARSTYLE = "barStyle",
     STATUSBAR = "StatusBar";
@@ -18,7 +19,13 @@ let onBarStylePropertyChanged = (data: dependencyObservable.PropertyChangeData) 
         let statusbar = <StatusBar>data.object;
         let value = data.newValue;
         
-        setTimeout(() => { statusbar.update(BarStyle[value]); });
+        if (app.ios) {
+            setTimeout(() => { statusbar.update(BarStyle[value]); });
+        }
+
+        if (app.android) {
+            setTimeout(() => { statusbar.update(value); });
+        }
     }
     catch (err) {
         console.log(err);
