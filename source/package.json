@@ -1,6 +1,6 @@
 {
     "name": "nativescript-statusbar",
-    "version": "0.0.3",
+    "version": "1.0.0",
     "description": "Provides API for setting the status bar style on iOS",
     "main": "statusbar.js",
     "nativescript": {
@@ -9,8 +9,30 @@
             "ios": "1.4.0"
         }
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/burkeholland/nativescript-statusbar.git"
+    },
     "keywords": [
-        "NativeScript", "ios", "statusbar"
+        "nativescript",
+        "native",
+        "typescript",
+        "ios",
+        "statusbar",
+        "status bar"
     ],
+    "contributors": [
+        {
+            "name": "Burke Holland",
+            "email": "burkeholland@gmail.com",
+            "url": "https://github.com/burkeholland"
+        },
+        {
+            "name": "Brad Martin",
+            "email": "bradwaynemartin@gmail.com",
+            "url": "https://github.com/bradmartin"
+        }
+    ],
+    "license": "MIT",
     "author": "Burke Holland <burkeholland@gmail.com>"
 }

@@ -29,8 +29,15 @@ module.exports = function(grunt) {
                   '**/*.js',
                   '**/*.d.ts',
                   'package.json',
-                  'README.md',
                   'platforms/**'
+              ],
+              dest: 'dist/package'
+          },
+          {
+              expand: true,
+              cwd: './',
+              src: [
+                  'README.md'
               ],
               dest: 'dist/package'
           }

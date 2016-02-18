@@ -3,6 +3,6 @@
   <Page.actionBar>
     <ActionBar class="action-bar-calm" title="Status Bar Test" />
   </Page.actionBar>
-  <x:StatusBar barStyle="light" />
+    <x:StatusBar ios:barStyle="light" android:barStyle="#00C0F5" />
   <WebView src="https://github.com/burkeholland/nativescript-statusbar/blob/master/README.md" />
 </Page>
