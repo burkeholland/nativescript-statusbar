@@ -18,7 +18,12 @@
             "name": "Burke Holland",
             "email": "burkeholland@gmail.com",
             "url": "https://github.com/burkeholland"
-        }   
+        },
+        {
+            "name": "Brad Martin",
+            "email": "bradwaynemartin@gmail.com",
+            "url": "https://github.com/bradmartin"
+        }
     ],
     "license": "MIT",
     "devDependencies": {
