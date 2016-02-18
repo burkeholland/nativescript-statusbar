@@ -6,6 +6,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 var view_1 = require("ui/core/view");
 var dependencyObservable = require("ui/core/dependency-observable");
 var proxy = require("ui/core/proxy");
+var app = require("application");
 var BARSTYLE = "barStyle", STATUSBAR = "StatusBar";
 var BarStyle;
 (function (BarStyle) {
@@ -18,7 +19,12 @@ var onBarStylePropertyChanged = function (data) {
     try {
         var statusbar_1 = data.object;
         var value = data.newValue;
-        setTimeout(function () { statusbar_1.update(BarStyle[value]); });
+        if (app.ios) {
+            setTimeout(function () { statusbar_1.update(BarStyle[value]); });
+        }
+        if (app.android) {
+            setTimeout(function () { statusbar_1.update(value); });
+        }
     }
     catch (err) {
         console.log(err);
