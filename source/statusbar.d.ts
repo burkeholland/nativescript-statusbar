@@ -5,7 +5,7 @@ declare module "statusbar" {
 
     import view = require("ui/core/view");
     import * as dependencyObservable from "ui/core/dependency-observable";
-    
+
     /**
      * Represents a StatusBar widget.
      */
@@ -17,26 +17,46 @@ declare module "statusbar" {
         public static barStyleProperty: dependencyObservable.Property;
 
         /*
-        * Updates the style of the status bar to the supplied value
+        * Dependency property used to support binding operations for setting the status bar color. 
         */
-        update(value: string);
+        public static barColorProperty: dependencyObservable.Property;
 
         /*
-        * Gets or sets the style of the status bar
+        * Updates the style of the status bar to the supplied value
         */
-        barStyle: string;         
-         
-        android: any /* android.widget.VideoView */;
+        updateBarStyle(value: string);
 
-        ios: any /* AVPlayerViewController */;
-    }
-    
-    export interface Options extends view.Options {
-    
+        /*
+        * Updates the color of the status bar to the supplied value
+        */
+        updateBarColor(value: string);
+
         /*
         * Gets or sets the style of the status bar
         */
         barStyle: string;
-  
+
+        /*
+        * Gets or sets the color of the status bar
+        */
+        barColor: string;
+
+        android: any /* android.widget.VideoView */;
+
+        ios: any /* AVPlayerViewController */;
+    }
+
+    export interface Options extends view.Options {
+
+        /*
+        * Gets or sets the style of the status bar
+        */
+        barStyle: string;
+
+        /*
+        * Gets or sets the color of the status bar
+        */
+        barColor: string;
+
     }
 }

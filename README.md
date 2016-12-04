@@ -21,7 +21,7 @@ iOS only supports a list of settings (default, light, dark, opaque), not a speci
            dark
            opaque
       -->
-      <x:StatusBar ios:barStyle="light" android:barStyle="#00C0F5" />
+      <x:StatusBar ios:barStyle="light" barColor="#00A7DC" />
       
 </Page>
 ````
