@@ -1,23 +1,23 @@
-import common = require("./statusbar-common");
-import definition = require("statusbar");
-import platform = require("platform");
-import app = require("application");
-import color = require("color");
+import * as common from "./statusbar-common";
+import * as definition from "statusbar";
+import * as platform from "platform";
+import * as color from "color";
+import * as app from "application";
 
 export class StatusBar extends common.StatusBar {
-    
-    public update(value: string) {
+
+    public updateBarColor(value: string) {
         try {
             if (value && platform.device.sdkVersion >= "21") {
                 var nativeColor = new color.Color(value).android;
                 var window = app.android.startActivity.getWindow();
                 window.setStatusBarColor(nativeColor);
-            }        
+            }
         } catch (err) {
             console.log(err);
-        }        
+        }
     }
-    
+
     constructor(options?: definition.Options) {
         super(options);
     }

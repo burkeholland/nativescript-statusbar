@@ -1,6 +1,6 @@
 {
     "name": "nativescript-statusbar",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Provides API for setting the status bar style on iOS",
     "main": "statusbar.js",
     "nativescript": {
