@@ -1,14 +1,8 @@
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+Object.defineProperty(exports, "__esModule", { value: true });
 var view_1 = require("ui/core/view");
-var dependencyObservable = require("ui/core/dependency-observable");
-var proxy = require("ui/core/proxy");
 var app = require("application");
-var BARSTYLE = "barStyle", BARCOLOR = "barColor", STATUSBAR = "StatusBar";
+var BARSTYLE = "barStyle", BARCOLOR = "barColor";
 var BarStyle;
 (function (BarStyle) {
     BarStyle[BarStyle["default"] = 0] = "default";
@@ -16,10 +10,10 @@ var BarStyle;
     BarStyle[BarStyle["dark"] = 2] = "dark";
     BarStyle[BarStyle["opaque"] = 3] = "opaque";
 })(BarStyle || (BarStyle = {}));
-var onBarStylePropertyChanged = function (data) {
+var onBarStylePropertyChanged = function (view, oldValue, newValue) {
     try {
-        var statusbar_1 = data.object;
-        var value_1 = data.newValue;
+        var statusbar_1 = view;
+        var value_1 = newValue;
         if (app.ios) {
             setTimeout(function () { statusbar_1.updateBarStyle(BarStyle[value_1]); });
         }
@@ -31,10 +25,10 @@ var onBarStylePropertyChanged = function (data) {
         console.log(err);
     }
 };
-var onBarColorPropertyChanged = function (data) {
+var onBarColorPropertyChanged = function (view, oldValue, newValue) {
     try {
-        var statusbar_2 = data.object;
-        var value_2 = data.newValue;
+        var statusbar_2 = view;
+        var value_2 = newValue;
         setTimeout(function () { statusbar_2.updateBarColor(value_2); });
     }
     catch (err) {
@@ -44,34 +38,22 @@ var onBarColorPropertyChanged = function (data) {
 var StatusBar = (function (_super) {
     __extends(StatusBar, _super);
     function StatusBar(options) {
-        _super.call(this, options);
+        return _super.call(this) || this;
     }
     StatusBar.prototype.updateBarStyle = function (value) {
     };
     StatusBar.prototype.updateBarColor = function (value) {
     };
-    Object.defineProperty(StatusBar.prototype, "barStyle", {
-        get: function () {
-            return this._getValue(StatusBar.barStyleProperty);
-        },
-        set: function (value) {
-            this._setValue(StatusBar.barStyleProperty, value);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StatusBar.prototype, "barColor", {
-        get: function () {
-            return this._getValue(StatusBar.barColorProperty);
-        },
-        set: function (value) {
-            this._setValue(StatusBar.barColorProperty, value);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    StatusBar.barStyleProperty = new dependencyObservable.Property(BARSTYLE, STATUSBAR, new proxy.PropertyMetadata(undefined, dependencyObservable.PropertyMetadataSettings.None, onBarStylePropertyChanged));
-    StatusBar.barColorProperty = new dependencyObservable.Property(BARCOLOR, STATUSBAR, new proxy.PropertyMetadata(undefined, dependencyObservable.PropertyMetadataSettings.None, onBarColorPropertyChanged));
     return StatusBar;
 }(view_1.View));
 exports.StatusBar = StatusBar;
+exports.barStyleProperty = new view_1.Property({
+    name: BARSTYLE,
+    valueChanged: onBarStylePropertyChanged
+});
+exports.barStyleProperty.register(StatusBar);
+exports.barColorProperty = new view_1.Property({
+    name: BARCOLOR,
+    valueChanged: onBarColorPropertyChanged
+});
+exports.barColorProperty.register(StatusBar);
