@@ -1,9 +1,5 @@
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+Object.defineProperty(exports, "__esModule", { value: true });
 var common = require("./statusbar-common");
 var platform = require("platform");
 var color = require("color");
@@ -11,7 +7,7 @@ var app = require("application");
 var StatusBar = (function (_super) {
     __extends(StatusBar, _super);
     function StatusBar(options) {
-        _super.call(this, options);
+        return _super.call(this, options) || this;
     }
     StatusBar.prototype.updateBarColor = function (value) {
         try {

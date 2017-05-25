@@ -1,12 +1,9 @@
 import * as definition from "statusbar";
-import { View } from "ui/core/view";
-import * as dependencyObservable from "ui/core/dependency-observable";
-import * as proxy from "ui/core/proxy";
+import { View, Property } from "ui/core/view";
 import * as app from "application";
 
 let BARSTYLE = "barStyle",
-    BARCOLOR = "barColor",
-    STATUSBAR = "StatusBar";
+    BARCOLOR = "barColor";
 
 enum BarStyle {
     default,
@@ -15,10 +12,10 @@ enum BarStyle {
     opaque
 }
 
-let onBarStylePropertyChanged = (data: dependencyObservable.PropertyChangeData) => {
+let onBarStylePropertyChanged = (view, oldValue, newValue) => {
     try {
-        let statusbar = <StatusBar>data.object;
-        let value = data.newValue;
+        let statusbar = <StatusBar>view;
+        let value = newValue;
 
         if (app.ios) {
             setTimeout(() => { statusbar.updateBarStyle(BarStyle[value]); });
@@ -34,10 +31,10 @@ let onBarStylePropertyChanged = (data: dependencyObservable.PropertyChangeData) 
     }
 }
 
-let onBarColorPropertyChanged = (data: dependencyObservable.PropertyChangeData) => {
+let onBarColorPropertyChanged = (view, oldValue, newValue) => {
     try {
-        let statusbar = <StatusBar>data.object;
-        let value = data.newValue;
+        let statusbar = <StatusBar>view;
+        let value = newValue;
         setTimeout(() => { statusbar.updateBarColor(value); });
     }
     catch (err) {
@@ -47,20 +44,9 @@ let onBarColorPropertyChanged = (data: dependencyObservable.PropertyChangeData) 
 
 export class StatusBar extends View implements definition.StatusBar {
 
-    public static barStyleProperty = new dependencyObservable.Property(
-        BARSTYLE,
-        STATUSBAR,
-        new proxy.PropertyMetadata(undefined, dependencyObservable.PropertyMetadataSettings.None, onBarStylePropertyChanged)
-    );
-
-    public static barColorProperty = new dependencyObservable.Property(
-        BARCOLOR,
-        STATUSBAR,
-        new proxy.PropertyMetadata(undefined, dependencyObservable.PropertyMetadataSettings.None, onBarColorPropertyChanged)
-    );
-
-    constructor(options?: definition.Options) {
-        super(options);
+     constructor(options?: definition.Options) {
+        super();
+        //TODO: super(options);
     }
 
     public updateBarStyle(value: string) {
@@ -70,20 +56,17 @@ export class StatusBar extends View implements definition.StatusBar {
     public updateBarColor(value: string) {
 
     }
-
-    get barStyle(): any {
-        return this._getValue(StatusBar.barStyleProperty);
-    }
-
-    set barStyle(value: any) {
-        this._setValue(StatusBar.barStyleProperty, value);
-    }
-
-    get barColor(): any {
-        return this._getValue(StatusBar.barColorProperty);
-    }
-
-    set barColor(value: any) {
-        this._setValue(StatusBar.barColorProperty, value);
-    }
 }
+
+export const barStyleProperty = new Property<StatusBar, string>({
+    name: BARSTYLE,
+    valueChanged: onBarStylePropertyChanged
+});
+barStyleProperty.register(StatusBar);
+ 
+export const barColorProperty = new Property<StatusBar, string>({
+    name: BARCOLOR,
+    valueChanged: onBarColorPropertyChanged
+});
+barColorProperty.register(StatusBar);
+   
