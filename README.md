@@ -3,7 +3,7 @@
 ### Usage
 
 ````
-npm install nativescript-statusbar
+npm install nativescript-statusbar --save
 ````
 
 Then in your NativeScript project .xml file, add the namespace for the plugin. I'm calling it "x" here, but you can name it anything you want.
