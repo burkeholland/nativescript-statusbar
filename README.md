@@ -1,6 +1,8 @@
-# A NativeScript plugin to change the style of the status bar.
+# NativeScript Status Bar
 
-### Usage
+A NativeScript plugin to change the style of the status bar.
+
+## Usage
 
 ````
 npm install nativescript-statusbar --save
@@ -10,7 +12,7 @@ Then in your NativeScript project .xml file, add the namespace for the plugin. I
 
 iOS only supports a list of settings (default, light, dark, opaque), not a specific color. Android will support any hex background color, but you cannot change the text color on the status bar. 
 
-````
+```` XML
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
       xmlns:x="nativescript-statusbar"> 
       
@@ -22,7 +24,6 @@ iOS only supports a list of settings (default, light, dark, opaque), not a speci
            opaque
       -->
       <x:StatusBar ios:barStyle="light" barColor="#00A7DC" />
-      
 </Page>
 ````
 
@@ -32,4 +33,10 @@ Those settings, combined with an ActionBar that has `background-color: #00C0F5` 
 
 **Note** The StatusBar plugin will not set the color of the StatusBar on iOS if you don't have an ActionBar as well. If you want to set the color of the StatusBar in NativeScript without having an ActionBar, you can set it to the page background color by setting `backgroundSpanUnderStatusBar="true"`. Otherwise you will have a white StatusBar no matter what you do. 
 
+## Webpack
 
+To use the NativeScript status bar plugin with webpack, you must add the following line of code to your app’s `app/bundle-config.js` file.
+
+``` JavaScript
+global.registerModule("nativescript-statusbar", function() { return require("nativescript-statusbar"); });
+```
