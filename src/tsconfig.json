@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "noEmitHelpers": true,
+        "target": "es5",
+        "module": "commonjs",
+        "declaration": true,
+        "noImplicitAny": false,
+        "noImplicitUseStrict": true,
+        "experimentalDecorators": true,
+        "diagnostics": true,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "removeComments": false,
+        "noEmitOnError": false,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        
+        "lib": [
+            "es6",
+            "dom"
+        ]
+    },
+    "angularCompilerOptions": {
+        "genDir": ".",
+        "skipMetadataEmit": false,
+        "skipTemplateCodegen": true,
+        "debug": true
+    },
+    "exclude": [
+        "node_modules",
+        "node_modules/tns-platform-declarations"
+    ]
+}

@@ -2,16 +2,16 @@
   "nativescript": {
     "id": "org.nativescript.demo",
     "tns-ios": {
-      "version": "3.0.1"
+      "version": "5.0.0"
     },
     "tns-android": {
-      "version": "3.0.0"
+      "version": "5.0.0"
     }
   },
   "dependencies": {
-	"nativescript-statusbar": "file:../dist/package",
-    "tns-core-modules": "^3.0.0 || ^3.0.0-rc.1",
-    "tns-platform-declarations": "^3.0.0 || ^3.0.0-rc.1"
+    "nativescript-statusbar": "../src",
+    "tns-core-modules": "^5.0.3",
+    "tns-platform-declarations": "^5.0.3"
   },
   "devDependencies": {
     "babel-traverse": "6.24.1",
