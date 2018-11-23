@@ -42,7 +42,16 @@
     "author": "Burke Holland <burkeholland@gmail.com>",
     "scripts": {
         "ngc": "node --max-old-space-size=8192 ./node_modules/.bin/ngc -p tsconfig.json",
-        "prepare": "npm run ngc"
+        "prepare": "npm run ngc",
+        "pack": "npm run prepare && bash ../publish/pack.sh",
+        "build.wrappers": "npm i && tsc",
+        "build.wrappers.watch": "npm i && tsc -w",
+        "demo.android": "npm run build.wrappers && cd ../demo && tns run android --syncAllFiles",
+        "demo.ios": "npm run build.wrappers && cd ../demo && tns run ios --syncAllFiles",
+        "demo.reset": "cd ../demo && rimraf platforms",
+        "demo.angular.ios": "npm run build.wrappers && cd ../demo-angular && tns run ios --syncAllFiles",
+        "demo.angular.android": "npm run build.wrappers && cd ../demo-angular && tns run android --syncAllFiles",
+        "demo.angular.reset": "cd ../demo-angular && rimraf platforms"
     },
     "devDependencies": {
         "@angular/compiler-cli": "~7.0.0",
