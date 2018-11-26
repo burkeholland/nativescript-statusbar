@@ -1,6 +1,6 @@
 {
     "name": "nativescript-statusbar",
-    "version": "4.0.1",
+    "version": "5.0.0",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/burkeholland/nativescript-statusbar.git"
