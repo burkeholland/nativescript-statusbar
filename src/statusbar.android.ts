@@ -10,7 +10,7 @@ export class StatusBar extends common.StatusBar {
         try {
             if (value && platform.device.sdkVersion >= "21") {
                 var nativeColor = new color.Color(value).android;
-                var window = app.android.startActivity.getWindow();
+                var window = app.android.foregroundActivity.getWindow();
                 window.setStatusBarColor(nativeColor);
             }
         } catch (err) {

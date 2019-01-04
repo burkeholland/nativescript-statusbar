@@ -33,6 +33,23 @@ Those settings, combined with an ActionBar that has `background-color: #00C0F5` 
 
 **Note** The StatusBar plugin will not set the color of the StatusBar on iOS if you don't have an ActionBar as well. If you want to set the color of the StatusBar in NativeScript without having an ActionBar, you can set it to the page background color by setting `backgroundSpanUnderStatusBar="true"`. Otherwise you will have a white StatusBar no matter what you do. 
 
+## With Vue.js
+
+In your root `app.js`:
+
+```
+Vue.registerElement('StatusBar', () => require('nativescript-statusbar').StatusBar)
+```
+
+In your component:
+```html
+<Page class="page" actionBarHidden="true" backgroundSpanUnderStatusBar="true">
+      <StatusBar barColor="#32475b" />
+<Page/>
+```
+
+That's is.
+
 ## Webpack
 
 To use the NativeScript status bar plugin with webpack, you must add the following line of code to your app’s `app/bundle-config.js` file.
